@@ -1,0 +1,37 @@
+body,html{
+  width: 100%;
+  height: 100vh;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url("../assets/Fifa.jpg");
+  background-size: cover;
+
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.bodyContentContainer{
+
+  height: 800vh;
+  background-color: rgb(96,106,112);
+  opacity: .8;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10%;
+
+
+}
+.SearchCountryBar{
+  background: 0 0;
+  outline: 0;
+
+  margin-left: 25%;
+  margin-top: 4%%;
+  border: none;
+  color: rgb(96,106,112);
+  font-size: 40px;
+  font-family: "open sans";
+  width: 50% !important
+}
