@@ -4,23 +4,26 @@ body,html{
 
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: url("../assets/Fifa.jpg");
+  background-image: url("../assets/field-field-line-football-54567.jpg");
   background-size: cover;
 
-  font-family: "open sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   overflow: hidden;
+  color: #FFFFFFFF;
 }
-
+placeholder{
+  color: #ffffff;
+}
 .bodyContentContainer{
 
-  height: 800vh;
-  background-color: rgb(96,106,112);
-  opacity: .8;
+  height: 650px;
+  background-color: rgb(34,50,63);
+  opacity: .6;
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 10%;
-
+  border-radius: 25px;
 
 }
 .SearchCountryBar{
@@ -30,8 +33,76 @@ body,html{
   margin-left: 25%;
   margin-top: 4%%;
   border: none;
-  color: rgb(96,106,112);
+  color: rgb(34,50,63);
   font-size: 40px;
   font-family: "open sans";
   width: 50% !important
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.sliders{
+  position: absolute;
+}
+.buttons{
+  text-align: right;
+}
+
+.table{
+  padding: 20px;
+
 }
