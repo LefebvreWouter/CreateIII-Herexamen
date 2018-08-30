@@ -1,75 +1,65 @@
-<!DOCTYPE html>
-<html lang="en_gb">
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Worldcup 2018 - Russia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FIFA World Cup 2018 Russia</title>
 
-  <!-- Check for actual screen size -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/dropdown/dropdown.css">
 
-  <!-- Our minified Style -->
-  <link rel="stylesheet" type="text/css" href="style/reset.css">
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css"  />
+    <link rel="stylesheet" href="style/app.css">
+    <script type="text/javascript" src="script/app.js"></script>
 
-  <script src="script/jquery-3.3.1.min.js"></script>
-  <script src="script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/dropdown/dropdown.js"></script>
 
 </head>
 <body>
-  <input class="SearchCountryBar" type="text" placeholder="Search your country...">
-  <div class="bodyContentContainer">
-    <div class="row">
-      <div class="teamInfo col-md-8">
-        <div class="table-responsive">
-          <table class="table">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="col-md-4 buttons">
-            <div class="sliders">
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"> Black/ White </span>
-              </label>
-
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-</div></div>
+    <header class="header">
+        <h1 class="header_title">2018 FIFA World Cup Russia™</h1>
+        <div class="hp-dropdown hp-dropdown--image cities">
+            <div class="hp-dropdown__select">
+                <div class="hp-dropdown__select-wrap">
+                    <img src="static/img/select.png" />
+                    <span>Select your team</span>
+                </div>
             </div>
-          </div>
+            <div class="hp-dropdown__options-wrap" id="listCountries">
+                <div class="hp-dropdown__option">
+                    <img src="https://api.fifa.com/api/v1/picture/flags-fwc2018-5/bel" />
+                    <span data-value="option1">Belgium</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </body>
-  </html>
+        <div class="switches">
+            <div class="groupbtn">
+                <label class="switch switch_type2" role="switch">
+                    <input type="checkbox" class="switch__toggle" id="EuSwitch">
+                    <span class="switch__label"></span>
+                </label>
+                <label class="lblToggle">EUROPEAN COUNTRIES</label>
+
+            </div>
+            <div class="groupbtn">
+                <label class="switch switch_type2" role="switch">
+                    <input type="checkbox" class="switch__toggle">
+                    <span class="switch__label"></span>
+                </label>
+                <label class="lblToggle">SHOW MATCH PLAYERS</label>
+
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="card_match_start">
+            <div class="card_match_collapsible">
+                <div class="center">
+                    <span class="">Select a country to see it's WC Matches</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
