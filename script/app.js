@@ -34,13 +34,22 @@ function Country(short, full, group){
 (function(){
     document.addEventListener("DOMContentLoaded", init);
     function init(){
-        getCountries();
+        var checkBox = document.getElementById("euCounties");
+        checkBox.addEventListener( 'change', function() {
+            if(this.checked) {
+                getCountries(true);
+            } else {
+                getCountries(false);
+            }
+        });
+
         renderClickEvent();
     }
 
-    function getCountries(){
+    function getCountries(EUcheck){
         http.get('https://worldcup.sfg.io/teams/').then(function(response){
             let coutries = [];
+            var EuCountry = ["Belgium","Croatia","Denmark","England","France","Germany","Iceland", "Spain","Sweden","Switzerland","Portugal","Poland", "Russia","serbia"]
             console.log(response);
             for(let i = 0, l = response.length; i<l; i++){
                 let c = new Country(
@@ -48,7 +57,13 @@ function Country(short, full, group){
                     response[i].country,
                     response[i].group_letter
                 );
-                coutries.push(c);
+                if(EUcheck == true){
+                    if(EuCountry.indexOf(c.FullName) > 0){
+                        coutries.push(c);
+                    }
+                } else {
+                    coutries.push(c);
+                }
             }
             coutries.sort(function(a, b){
                 var x = a.FullName.toLowerCase();
@@ -60,35 +75,7 @@ function Country(short, full, group){
             renderHtml(coutries);
         });
     }
-    /* Toggle Eu */
-    function checkToggles(EuCountry){
-      var EuCountry = ["Belgium","Croatia","Denmark","England","France","Germany","Iceland", "Spain","Sweden","Switzerland","Portugal","Poland", "Russia","serbia"]
 
-        if ($("#EuSwitch").prop('checked') == true){
-            EuCountries = EuCountry
-            console.log(EuCountry);
-        } else if($("#EuSwitch").prop('checked') == false){
-            country = response;
-            console.log(response);
-            getCountries(response);
-        }
-    }
-
-    /* async function euToggle */
-    async function renderHtml(EuCountry){
-        let bobTheHTMLBuiler = ``;
-        for(let i = 0, l = EuCountry.length; i<l; i++){
-
-            bobTheHTMLBuiler += `
-                <div class="hp-dropdown__option">
-                    <img src="https://api.fifa.com/api/v1/picture/flags-fwc2018-5/${EuCountry[i].ShortName}" />
-                    <span data-value="${EuCountry[i].ShortName}">${EuCountry[i].FullName}</span>
-                </div>
-            `;
-        }
-        document.querySelector("#listCountries").innerHTML = bobTheHTMLBuiler;
-    }
-/*async function all contries */
     async function renderHtml(coutries){
         let bobTheHTMLBuiler = ``;
         for(let i = 0, l = coutries.length; i<l; i++){
@@ -117,8 +104,6 @@ function Match(stadium, Date, THome, THomeL, TAway, TAwayL, HGoals, AGoals, HFul
     this.HomeTeamFull = HFull;
     this.AwayTeamFull = AFull;
 }
-
-
 
 function getDataByCountry(fifa_code){
     http.get('https://worldcup.sfg.io/matches/country?fifa_code='+fifa_code).then(function(response){
