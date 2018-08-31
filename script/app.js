@@ -1,4 +1,3 @@
-/*   LIB FOR  REQUESTS   */
 (function () {
     "use strict";
 
@@ -11,7 +10,7 @@
                 ok(json);
             };
             xmlHttp.onerror = () => {
-                nok("Er is iet misgelopen, contacteer de administrator");
+                nok("Something's wrong");
             };
 
             xmlHttp.send(null);
@@ -30,7 +29,6 @@ function Country(short, full, group){
     this.Group = group;
 }
 
-/*   FILL SELECT   */
 (function(){
     document.addEventListener("DOMContentLoaded", init);
     function init(){
@@ -75,7 +73,23 @@ function Country(short, full, group){
             renderHtml(coutries);
         });
     }
+  
 
+    /* async function euToggle */
+    async function renderHtml(EuCountry){
+        let bobTheHTMLBuiler = ``;
+        for(let i = 0, l = EuCountry.length; i<l; i++){
+
+            bobTheHTMLBuiler += `
+                <div class="hp-dropdown__option">
+                    <img src="https://api.fifa.com/api/v1/picture/flags-fwc2018-5/${EuCountry[i].ShortName}" />
+                    <span data-value="${EuCountry[i].ShortName}">${EuCountry[i].FullName}</span>
+                </div>
+            `;
+        }
+        document.querySelector("#listCountries").innerHTML = bobTheHTMLBuiler;
+    }
+/*async function all contries */
     async function renderHtml(coutries){
         let bobTheHTMLBuiler = ``;
         for(let i = 0, l = coutries.length; i<l; i++){
@@ -104,6 +118,8 @@ function Match(stadium, Date, THome, THomeL, TAway, TAwayL, HGoals, AGoals, HFul
     this.HomeTeamFull = HFull;
     this.AwayTeamFull = AFull;
 }
+
+
 
 function getDataByCountry(fifa_code){
     http.get('https://worldcup.sfg.io/matches/country?fifa_code='+fifa_code).then(function(response){
