@@ -32,6 +32,7 @@ function Country(short, full, group){
 (function(){
     document.addEventListener("DOMContentLoaded", init);
     function init(){
+      getCountries(false);
         var checkBox = document.getElementById("euCounties");
         checkBox.addEventListener( 'change', function() {
             if(this.checked) {
@@ -73,7 +74,7 @@ function Country(short, full, group){
             renderHtml(coutries);
         });
     }
-  
+
 
     /* async function euToggle */
     async function renderHtml(EuCountry){
